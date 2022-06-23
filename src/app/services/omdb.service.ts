@@ -15,5 +15,4 @@ export class OmdbService {
   getPelicula(titulo:string):Observable<any> {
     return this.clienteHTTP.get<any>(URL+API_KEY+"&t="+titulo); 
   }  
-
 }

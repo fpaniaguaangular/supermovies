@@ -1,0 +1,12 @@
+#div-botones {
+    text-align: right;
+}
+form div {
+    margin-bottom: 2em;
+}
+div button {
+    margin-right: 2em;
+}
+mat-form-field {
+    width: 100%;
+}

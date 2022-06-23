@@ -1,4 +1,12 @@
-<h1>{{pelicula?.Title}}</h1>
-<h2>{{pelicula?.Year}}</h2>
-<p>{{pelicula?.Plot}}</p>
-<img [src]="pelicula?.Poster">
+<main>
+    <h1>Búsqueda de películas</h1>
+    <form [formGroup]="formularioBusqueda">
+        <input type="text" formControlName="titulo">
+        <button (click)="buscar()">Buscar</button>
+    </form>
+
+    <h1>{{pelicula?.Title}}</h1>
+    <h2>{{pelicula?.Year}}</h2>
+    <p>{{pelicula?.Plot}}</p>
+    <img [src]="pelicula?.Poster">
+</main>

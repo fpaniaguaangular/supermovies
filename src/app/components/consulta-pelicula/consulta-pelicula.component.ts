@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { OmdbService } from 'src/app/services/omdb.service';
 
 @Component({
@@ -8,16 +9,27 @@ import { OmdbService } from 'src/app/services/omdb.service';
 })
 export class ConsultaPeliculaComponent implements OnInit {
 
+  formularioBusqueda: FormGroup;
   pelicula:any=undefined;
-  constructor(private omdbService:OmdbService) { }
+  constructor(private omdbService:OmdbService) { 
+    this.formularioBusqueda = new FormGroup(
+      {
+        titulo: new FormControl() 
+      }
+    );
+  }
 
-  ngOnInit(): void {
-    this.omdbService.getPelicula("Mutiny on the Bounty").subscribe(
+  buscar():void{
+    this.omdbService.getPelicula(
+      this.formularioBusqueda.controls['titulo'].value).subscribe(
       pelicula => {
-        console.log(pelicula);
+        //console.log(pelicula);
         this.pelicula = pelicula;
       }
     );
+  }
+
+  ngOnInit(): void { 
   }
 
 }

@@ -1,7 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AyudaComponent } from './components/ayuda/ayuda.component';
+import { ConsultaPeliculaComponent } from './components/consulta-pelicula/consulta-pelicula.component';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+    {path:'inicio',component:InicioComponent},
+    {path:'registro',component:RegistroComponent},
+    {path:'consulta',component:ConsultaPeliculaComponent},
+    {path:'ayuda',component:AyudaComponent},
+    {path:'help',redirectTo:'ayuda'},//Redirección (alias)
+    {path:'',component:InicioComponent,pathMatch:'full'},
+    {path:'**',component:InicioComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
