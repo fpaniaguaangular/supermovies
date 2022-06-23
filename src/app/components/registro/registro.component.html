@@ -1,16 +1,16 @@
 <main>
     <h1>Registro</h1>
-    <form class="example-form">
+    <form class="example-form" [formGroup]="formularioRegistro">
         <div>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Nombre del usuario</mat-label>
-                <input matInput placeholder="Nombre" value="">
+                <input matInput placeholder="Nombre" value="" formControlName="nombre">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" formControlName="fecha">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -19,12 +19,12 @@
         <div>
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Dirección de correo electrónico</mat-label>
-                <input matInput placeholder="Email" value="">
+                <input matInput placeholder="Email" value="" formControlName="email">
             </mat-form-field>
         </div>
         <div id="div-botones">
-            <button mat-raised-button color="primary">Registrar</button>
-            <button mat-raised-button color="warn">Limpiar</button>
+            <button mat-raised-button color="primary" (click)="registrar()" [disabled]="!formularioRegistro.valid">Registrar</button>
+            <button mat-raised-button color="warn" (click)="limpiar()">Limpiar</button>
         </div>
     </form>
 </main>
