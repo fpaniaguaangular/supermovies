@@ -20,6 +20,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { NoautorizadoComponent } from './components/noautorizado/noautorizado.component';
+import { PruebasPromiseComponent } from './components/pruebas-promise/pruebas-promise.component';
+import { PruebasObservableComponent } from './components/pruebas-observable/pruebas-observable.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { MatButtonModule } from '@angular/material/button';
     InicioComponent,
     RegistroComponent,
     AyudaComponent,
-    PieComponent
+    PieComponent,
+    NoautorizadoComponent,
+    PruebasPromiseComponent,
+    PruebasObservableComponent
   ],
   imports: [
     BrowserModule,

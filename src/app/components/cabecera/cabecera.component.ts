@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OmdbService } from 'src/app/services/omdb.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
+  
 }

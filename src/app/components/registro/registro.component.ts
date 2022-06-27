@@ -20,9 +20,10 @@ export class RegistroComponent implements OnInit {
           Validators.required,
           validarFecha()
         ]),
-        email: new FormControl("",
-          Validators.email
-        ) 
+        email: new FormControl("",[
+          Validators.required,
+          Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
+        ]) 
       }
     );  
   }
@@ -49,6 +50,18 @@ export class RegistroComponent implements OnInit {
     localStorage.setItem("nombre",this.formularioRegistro.controls['nombre'].value);
     localStorage.setItem("fecha",this.formularioRegistro.controls['fecha'].value);
     localStorage.setItem("email",this.formularioRegistro.controls['email'].value);
+  }
+
+  getNameErrorMessage():string|null{
+    let mensaje=null;
+    if (this.formularioRegistro.dirty) {
+      if (this.formularioRegistro.controls['nombre'].errors?.['required']) {
+        mensaje = "El nombre es obligatorio";
+      } else if (this.formularioRegistro.controls['nombre'].errors?.['minlength']) {
+        mensaje = "El nombre debe tener más de 10 caracteres";
+      }
+    }
+    return mensaje;
   }
 }
 

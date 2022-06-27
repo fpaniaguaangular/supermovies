@@ -13,6 +13,6 @@ export class OmdbService {
   constructor(private clienteHTTP:HttpClient) { }
 
   getPelicula(titulo:string):Observable<any> {
-    return this.clienteHTTP.get<any>(URL+API_KEY+"&t="+titulo); 
+    return this.clienteHTTP.get<any>(URL+API_KEY+"&t="+titulo);
   }  
 }

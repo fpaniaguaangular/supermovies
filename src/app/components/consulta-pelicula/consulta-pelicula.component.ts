@@ -8,7 +8,7 @@ import { OmdbService } from 'src/app/services/omdb.service';
   styleUrls: ['./consulta-pelicula.component.css']
 })
 export class ConsultaPeliculaComponent implements OnInit {
-
+  loading:boolean=false;
   formularioBusqueda: FormGroup;
   pelicula:any=undefined;
   constructor(private omdbService:OmdbService) { 
@@ -20,13 +20,16 @@ export class ConsultaPeliculaComponent implements OnInit {
   }
 
   buscar():void{
-    this.omdbService.getPelicula(
-      this.formularioBusqueda.controls['titulo'].value).subscribe(
-      pelicula => {
-        //console.log(pelicula);
+    this.loading=true;
+    console.log("ANTES DE BUSCAR LA PELÍCULA");
+    this.omdbService.getPelicula(this.formularioBusqueda.controls['titulo'].value)
+      .subscribe(pelicula => {
         this.pelicula = pelicula;
+        console.log("YA TENGO LA PELÍCULA");
+        this.loading=false;
       }
     );
+    console.log("DESPUÉS DE BUSCAR LA PELÍCULA");
   }
 
   ngOnInit(): void { 

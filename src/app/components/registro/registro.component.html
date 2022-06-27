@@ -6,6 +6,19 @@
                 <mat-label>Nombre del usuario</mat-label>
                 <input matInput placeholder="Nombre" value="" formControlName="nombre">
             </mat-form-field>
+            <!--ALTERNATIVA 1-->
+            <div class="error">
+                <div class="error" *ngIf="formularioRegistro.dirty && formularioRegistro.controls['nombre'].errors?.['required']">
+                    El nombre es obligatorio
+                </div>
+                <div class="error" *ngIf="formularioRegistro.dirty && formularioRegistro.controls['nombre'].errors?.['minlength']">
+                    El nombre debe tener más de 10 caracteres
+                </div>
+            </div>
+            <!--ALTERNATIVA 2-->
+            <div class="error">
+                {{getNameErrorMessage()}}
+            </div>
         </div>
         <div>
             <mat-form-field appearance="fill">
