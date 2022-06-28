@@ -42,7 +42,8 @@ export class RegistroComponent implements OnInit {
   
   recuperarInfoLS():void {
     this.formularioRegistro.controls['nombre'].setValue(localStorage.getItem("nombre"));
-    this.formularioRegistro.controls['fecha'].setValue(localStorage.getItem("fecha"));
+    this.formularioRegistro.controls['fecha'].setValue(new Date(String(localStorage.getItem("fecha"))));
+    //this.formularioRegistro.controls['fecha'].setValue(localStorage.getItem("fecha"));
     this.formularioRegistro.controls['email'].setValue(localStorage.getItem("email"));
   }
 

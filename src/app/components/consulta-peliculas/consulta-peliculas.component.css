@@ -1,0 +1,23 @@
+.ficha-peli {
+    width: 99%;
+    height: 500px;
+    background-color: azure;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top:10px;
+    text-align: center;
+}
+
+.ficha-peli img {
+    height: 400px;
+}
+
+.enlace {
+    color: blue;
+    padding: 3px;
+}
+.enlace:hover {
+    font-weight: bolder;
+    cursor: pointer;
+}
+

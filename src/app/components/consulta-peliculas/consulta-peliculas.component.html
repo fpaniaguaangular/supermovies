@@ -1,0 +1,25 @@
+<main>
+    <h1>Búsqueda de películas</h1>
+    <form [formGroup]="formularioBusqueda">
+        <input type="text" formControlName="titulo">
+        <button (click)="buscar(1)">Buscar</button>
+    </form>
+    <div *ngIf="loading">
+        <img src="./assets/loading.gif">
+    </div>
+    <h4>
+        <span class="enlace" (click)="buscar(numeroPaginaActual-1)">&lt;&lt;</span>
+        Página {{numeroPaginaActual}} de {{numeroPaginas}}
+        <span class="enlace" (click)="buscar(numeroPaginaActual+1)">&gt;&gt;</span>
+    </h4>
+    <div>
+    <span *ngFor="let item of arrayGenerator(numeroPaginas);let i = index">
+        <span class="enlace" (click)="buscar(i+1)">{{i+1}}</span>&nbsp;
+    </span>
+    </div>
+    <div *ngFor="let peli of peliculas" class="ficha-peli">
+        <h1>{{peli.Title}} ({{peli.imdbID}})</h1>
+        <h2>{{peli.Year}}</h2>
+        <img [src]="peli.Poster">
+    </div>
+</main>

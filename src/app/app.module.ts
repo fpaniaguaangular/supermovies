@@ -23,6 +23,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { NoautorizadoComponent } from './components/noautorizado/noautorizado.component';
 import { PruebasPromiseComponent } from './components/pruebas-promise/pruebas-promise.component';
 import { PruebasObservableComponent } from './components/pruebas-observable/pruebas-observable.component';
+import { ConsultaPeliculasComponent } from './components/consulta-peliculas/consulta-peliculas.component';
+import { HttpTestComponent } from './components/http-test/http-test.component';
+import { HttpTestHeadersComponent } from './components/http-test-headers/http-test-headers.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { PruebasObservableComponent } from './components/pruebas-observable/prue
     PieComponent,
     NoautorizadoComponent,
     PruebasPromiseComponent,
-    PruebasObservableComponent
+    PruebasObservableComponent,
+    ConsultaPeliculasComponent,
+    HttpTestComponent,
+    HttpTestHeadersComponent
   ],
   imports: [
     BrowserModule,
