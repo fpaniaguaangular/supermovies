@@ -1,0 +1,9 @@
+main {
+    color: white;
+    text-align: center;
+    background-color: #191f26;
+}
+input, button {
+    padding: 10px;
+    font-weight: 600;
+}

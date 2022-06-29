@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="1280386768411289887" datatype="html">
+        <source>Desarrollado por Super Angular Developers 2022</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pie/pie.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3342624156304522888" datatype="html">
+        <source>(Aquí debajo -dentro del template- están comentados los ejemplos de los pipes)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/pie/pie.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5357661269973482487" datatype="html">
+        <source>Nombre</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/registro/registro.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
  * 
  */
 
-
 @Component({
   selector: 'app-http-test-headers',
   templateUrl: './http-test-headers.component.html',
@@ -19,12 +18,21 @@ export class HttpTestHeadersComponent implements OnInit {
 
   URL:string="https://free-epic-games.p.rapidapi.com/free";
 
+  /*
+  //SIN INTERCEPTOR
   httpHeaders = {
     headers: new HttpHeaders({
       'X-RapidAPI-Key':'8fe6f42975msh4569bbbdea6402bp1c2cd3jsne0025680afe6',
       'X-RapidAPI-Host':'free-epic-games.p.rapidapi.com'
     })
   };
+  */
+
+  //CON INTERCEPTOR
+  httpHeaders = {
+    headers: new HttpHeaders()
+  };
+
 
   constructor(private clienteHTTP:HttpClient) { }
 

@@ -1,20 +1,42 @@
 <footer>
-    <p>Desarrollado por Super Angular Developers 2022</p>
+    <p i18n>Desarrollado por Super Angular Developers 2022</p>
+    <p i18n>(Aquí debajo -dentro del template- están comentados los ejemplos de los pipes)</p>
     <!--
     <p>{{ coste }}</p>
     -->
     <!--Decimal Pipe-->
     <!--
-    <p>{{ coste | number}}</p>
-    <p>{{ coste | number:'6.8-8'}}</p>
+    <p>{{ coste | number }}</p>
+    <p>{{ coste | number:'6.8-8' }}</p>
     -->
     <!--Currency Pipe-->
     <!--
     <p>{{ coste | currency:'EUR':'symbol':'6.3-3' }}</p>    
     -->
-    <p>{{ hoy }}</p>
+    <p>{{ coste | currency }}</p>
     <!-- Date Pipe-->
-    <p>{{ hoy | date : 'dd-MM-YYYY' }}</p>
-    <p>{{ hoy | date : 'short' }}</p>
     
+    <p>{{ hoy }}</p>
+    <p>{{ hoy | date : 'dd-MM-YYYY' }}</p>
+    <p>{{ hoy | date : 'fullDate' }}</p>
+
+    <!-- Percent Pipes -->
+    <!--
+    <p>{{ impuesto }}</p>
+    <p>{{ impuesto | percent }}</p>
+    <p>{{ impuesto | percent :'3.2-2'}}</p>
+    -->
+    <!-- Transformación de texto-->
+    <!--
+    <p>{{ creditos.empresa }}</p>
+    <p>{{ creditos.empresa | uppercase }}</p>
+    <p>{{ creditos.empresa | lowercase }}</p>
+    <p>{{ creditos.empresa | titlecase }}</p>
+    -->
+    <!-- Slice Pipe -->
+    <!--<span *ngFor="let dia of diasSemana | slice:0:5  ">{{dia | titlecase}}&nbsp;</span>-->
+
+    <!--  i18nPlurals Pipe -->
+    <!--<p>{{ diasSemana.length | i18nPlural: messageMapping }}</p>-->
+
 </footer>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivadorInterceptorService } from 'src/app/services/activador-interceptor.service';
 import { OmdbService } from 'src/app/services/omdb.service';
 
 @Component({
@@ -8,31 +9,30 @@ import { OmdbService } from 'src/app/services/omdb.service';
   styleUrls: ['./consulta-pelicula.component.css']
 })
 export class ConsultaPeliculaComponent implements OnInit {
-  loading:boolean=false;
+  loading: boolean = false;
   formularioBusqueda: FormGroup;
-  pelicula:any=undefined;
-  constructor(private omdbService:OmdbService) { 
+  pelicula: any = undefined;
+  constructor(private omdbService: OmdbService) {
     this.formularioBusqueda = new FormGroup(
       {
-        titulo: new FormControl() 
+        titulo: new FormControl()
       }
     );
   }
 
-  buscar():void{
-    this.loading=true;
-    console.log("ANTES DE BUSCAR LA PELÍCULA");
-    this.omdbService.getPelicula(this.formularioBusqueda.controls['titulo'].value)
-      .subscribe(pelicula => {
-        this.pelicula = pelicula;
-        console.log("YA TENGO LA PELÍCULA");
-        this.loading=false;
-      }
-    );
-    console.log("DESPUÉS DE BUSCAR LA PELÍCULA");
+  buscar(): void {
+    this.loading = true;
+    setTimeout(() => {
+      this.omdbService.getPelicula(this.formularioBusqueda.controls['titulo'].value)
+        .subscribe(pelicula => {
+          this.pelicula = pelicula;
+          this.loading = false;
+        }
+        );
+    }, 1000);
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
 
 }

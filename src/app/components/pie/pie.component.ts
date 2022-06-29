@@ -7,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PieComponent implements OnInit {
 
-  creditos:any = {empresa:"Super Angular Developers",anyo:"2022"};
+  diasSemana = ['lunes','martes','miercoles','jueves','viernes','sábado','domingo'];
+  messageMapping:
+      {[k: string]: string} = {'=0': 'Ningún día.', '=1': 'Un día.', 'other': '# días.'};
+
+  creditos:any = {empresa:"super angular developers",anyo:"2022"};
   coste:number=1500.5318;
+  impuesto:number=23.15;
   hoy:any;
 
   constructor() { 

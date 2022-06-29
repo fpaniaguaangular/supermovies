@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivadorInterceptorService } from 'src/app/services/activador-interceptor.service';
 import { OmdbService } from 'src/app/services/omdb.service';
 
-const NUMERO_REGISTROS_POR_PAGINA=10;
+const NUMERO_REGISTROS_POR_PAGINA = 10;
 
 @Component({
   selector: 'app-consulta-peliculas',
@@ -11,47 +12,49 @@ const NUMERO_REGISTROS_POR_PAGINA=10;
 })
 export class ConsultaPeliculasComponent implements OnInit {
 
-  loading:boolean=false;
+  loading: boolean = false;
   formularioBusqueda: FormGroup;
-  numeroRegistros:number=0;
-  peliculas:any=undefined;
-  imdbID:string="";
-  numeroPaginaActual:number=0;
-  numeroPaginas:number=0;
-  constructor(private omdbService:OmdbService) { 
+  numeroRegistros: number = 0;
+  peliculas: any = undefined;
+  imdbID: string = "";
+  numeroPaginaActual: number = 0;
+  numeroPaginas: number = 0;
+  constructor(private omdbService: OmdbService) {
     this.formularioBusqueda = new FormGroup(
       {
-        titulo: new FormControl() 
+        titulo: new FormControl()
       }
     );
   }
 
-  buscar(numeroPagina:number):void{
-    if (numeroPagina<=0) return;
-    if (this.numeroPaginas>0 && numeroPagina>this.numeroPaginas) return;
-    
-    this.loading=true;
-    this.numeroPaginaActual=numeroPagina;
-    this.omdbService.getPeliculas(
-      this.formularioBusqueda.controls['titulo'].value, numeroPagina)
-      .subscribe(peliculas => {
-        console.log(peliculas);
-        this.loading=false;
-        //Datos proporcionados por el WebService
-        this.numeroRegistros = peliculas.totalResults;
-        this.peliculas = peliculas.Search;
-        //Datos calculados para disponer del número de páginas
-        this.numeroPaginas = 
-          Math.ceil(this.numeroRegistros/NUMERO_REGISTROS_POR_PAGINA);
-      }
-    );
+  buscar(numeroPagina: number): void {
+    if (numeroPagina <= 0) return;
+    if (this.numeroPaginas > 0 && numeroPagina > this.numeroPaginas) return;
+    this.loading = true;
+    setTimeout(() => {
+      this.numeroPaginaActual = numeroPagina;
+      this.omdbService.getPeliculas(
+        this.formularioBusqueda.controls['titulo'].value, numeroPagina)
+        .subscribe(peliculas => {
+          console.log(peliculas);
+          this.loading = false;
+          //Datos proporcionados por el WebService
+          this.numeroRegistros = peliculas.totalResults;
+          this.peliculas = peliculas.Search;
+          //Datos calculados para disponer del número de páginas
+          this.numeroPaginas =
+            Math.ceil(this.numeroRegistros / NUMERO_REGISTROS_POR_PAGINA);
+        }
+        );
+    }, 1000);
+
   }
   arrayGenerator(i: number) {
     return new Array(i);
   }
 
-  
-  ngOnInit(): void { 
+
+  ngOnInit(): void {
   }
 
 }

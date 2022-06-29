@@ -1,7 +1,17 @@
+main {
+    text-align: center;
+    background-color: #191f26;
+    color:white;
+}
+input, button {
+    padding: 10px;
+    font-weight: 600;
+}
+
 .ficha-peli {
     width: 99%;
     height: 500px;
-    background-color: azure;
+    background-color: #374454;
     border-radius: 5px;
     padding: 5px;
     margin-top:10px;
@@ -13,7 +23,7 @@
 }
 
 .enlace {
-    color: blue;
+    color: orange;
     padding: 3px;
 }
 .enlace:hover {
